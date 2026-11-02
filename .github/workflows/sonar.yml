@@ -14,9 +14,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Code
-        uses: actions/checkout@v4
+        uses: actions/checkout@v3
         with:
-          fetch-depth: 0 # Shallow clones should be disabled for a better relevancy of analysis
+          fetch-depth: 0
 
       - name: Ensure configuration file exists
         run: |
@@ -28,7 +28,7 @@ jobs:
           fi
 
       - name: Run SonarQube Cloud Scan
-        uses: SonarSource/sonarcloud-github-action@v3.1.0
+        uses: SonarSource/sonarcloud-github-action@v2.1.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
